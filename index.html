@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's For Dinner</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-orange-100 py-3 sticky-top">
+        <div class="container-xl">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                <div class="logo-box rounded-circle d-flex align-items-center justify-content-center text-white shadow-sm">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div>
+                    <h1 class="h5 fw-bold mb-0 text-dark">What's For Dinner</h1>
+                    <small class="text-muted d-none d-sm-block" style="font-size: 0.75rem;">Your daily meal inspiration</small>
+                </div>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars text-secondary"></i>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-lg-center gap-lg-4 gap-3 pt-3 pt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-orange" href="#">
+                            <i class="fa-solid fa-bookmark me-2 d-lg-none"></i>
+                            <i class="fa-solid fa-bookmark d-none d-lg-inline fs-5"></i>
+                            <span class="d-lg-none">Saved</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-orange" href="#">
+                            <i class="fa-solid fa-clock-rotate-left me-2 d-lg-none"></i>
+                            <i class="fa-solid fa-clock-rotate-left d-none d-lg-inline fs-5"></i>
+                            <span class="d-lg-none">Recent</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary hover-orange" href="#">
+                            <i class="fa-solid fa-gear me-2 d-lg-none"></i>
+                            <i class="fa-solid fa-gear d-none d-lg-inline fs-5"></i>
+                            <span class="d-lg-none">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="profile-pic border border-2 border-warning rounded-circle overflow-hidden d-inline-block align-middle">
+                            <img src="https://storage.googleapis.com/uxpilot-auth.appspot.com/avatars/avatar-4.jpg" alt="Profile" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <span class="d-lg-none ms-2 text-secondary">Profile</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <main class="container-xl py-4 py-lg-5">
+        <section id="recipe-card" class="card border-0 shadow-lg overflow-hidden rounded-4">
+            <div class="row g-0">
+                
+                <!-- Left: Image -->
+                <div class="col-lg-5 position-relative image-section">
+                    <img id="meal-img" src="" alt="Meal Image" class="w-100 h-100 object-fit-cover position-absolute top-0 start-0">
+                    
+                    <!-- Rating -->
+                    <div class="position-absolute top-0 start-0 m-4 bg-white rounded-pill px-3 py-1 shadow-sm d-flex align-items-center gap-2">
+                        <i class="fa-solid fa-star text-warning"></i>
+                        <span class="fw-bold text-dark" id="rating-val">4.8</span>
+                        <span class="text-muted small">(234 reviews)</span>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="position-absolute bottom-0 start-0 end-0 m-3 m-lg-4 p-3 bg-white-glass rounded-4 shadow-sm backdrop-blur">
+                        <div class="row text-center g-2">
+                            <div class="col-4 border-end">
+                                <i class="fa-solid fa-clock text-orange mb-1 fs-5"></i>
+                                <div class="small text-muted">Prep</div>
+                                <div class="fw-bold" id="prep-time">15 min</div>
+                            </div>
+                            <div class="col-4 border-end">
+                                <i class="fa-solid fa-fire-burner text-danger mb-1 fs-5"></i>
+                                <div class="small text-muted">Cook</div>
+                                <div class="fw-bold" id="cook-time">20 min</div>
+                            </div>
+                            <div class="col-4">
+                                <i class="fa-solid fa-users text-primary mb-1 fs-5"></i>
+                                <div class="small text-muted">Serves</div>
+                                <div class="fw-bold" id="servings">4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="col-lg-7 bg-white p-4 p-lg-5 scroll-container">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex gap-2">
+                            <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2" id="difficulty">Easy</span>
+                            <span class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2" id="category">Italian</span>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button class="btn btn-light rounded-3 text-orange"><i class="fa-solid fa-bookmark"></i></button>
+                            <button class="btn btn-light rounded-3 text-orange"><i class="fa-solid fa-share-nodes"></i></button>
+                        </div>
+                    </div>
+
+                    <h2 class="display-6 fw-bold text-dark mb-2" id="meal-title">Loading...</h2>
+                    <p class="text-muted lead fs-6 mb-4" id="meal-desc">...</p>
+
+                    <!-- Warnings -->
+                    <div id="time-warning" class="alert bg-danger-subtle border-0 border-start border-4 border-danger text-danger rounded-4 mb-4 d-none">
+                        <div class="d-flex align-items-center">
+                            <i class="fa-solid fa-triangle-exclamation fs-4 me-3"></i>
+                            <div>
+                                <div class="fw-bold">Long Wait!</div>
+                                <div class="small text-danger-emphasis">This takes over 45 minutes to make.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Tabs -->
+                    <ul class="nav nav-tabs nav-fill flex-nowrap border-bottom-0 mb-4" id="recipeTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active fw-semibold" id="ingredients-tab" data-bs-toggle="tab" data-bs-target="#ingredients-content" type="button" role="tab">
+                                <i class="fa-solid fa-list-check me-2"></i>Ingredients
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-semibold" id="instructions-tab" data-bs-toggle="tab" data-bs-target="#instructions-content" type="button" role="tab">
+                                <i class="fa-solid fa-book-open me-2"></i>Instructions
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-semibold" id="nutrition-tab" data-bs-toggle="tab" data-bs-target="#nutrition-content" type="button" role="tab">
+                                <i class="fa-solid fa-chart-pie me-2"></i>Nutrition
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link fw-semibold" id="tips-tab" data-bs-toggle="tab" data-bs-target="#tips-content" type="button" role="tab">
+                                <i class="fa-solid fa-lightbulb me-2"></i>Chef's Tips
+                            </button>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Contents -->
+                    <div class="tab-content" id="recipeTabContent" style="min-height: 200px;">
+                        
+                        <!-- 1. Ingredients -->
+                        <div class="tab-pane fade show active" id="ingredients-content" role="tabpanel">
+                            <div class="bg-red-light rounded-4 p-4">
+                                <ul class="list-unstyled mb-0 d-flex flex-column gap-3" id="ingredients-list">
+                                    <!-- JS will fill this -->
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- 2. Instructions -->
+                        <div class="tab-pane fade" id="instructions-content" role="tabpanel">
+                            <div class="d-flex flex-column gap-4" id="instructions-list">
+                                <!-- JS will fill this -->
+                            </div>
+                        </div>
+
+                        <!-- 3. Nutrition -->
+                        <div class="tab-pane fade" id="nutrition-content" role="tabpanel">
+                            <div class="row g-3" id="nutrition-list">
+                                <!-- JS will fill this -->
+                            </div>
+                        </div>
+
+                        <!-- 4. Tips -->
+                        <div class="tab-pane fade" id="tips-content" role="tabpanel">
+                            <ul class="d-flex flex-column gap-3 list-unstyled" id="tips-list">
+                                <!-- JS will fill this -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- New Button -->
+                    <div class="mt-5 pt-4 border-top">
+                        <button id="new-meal-btn" class="btn btn-gradient text-white w-100 py-3 rounded-pill fw-bold shadow-sm hover-scale">
+                            <i class="fa-solid fa-rotate me-2"></i> What should I eat today?
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
