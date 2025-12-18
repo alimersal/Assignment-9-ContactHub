@@ -6,8 +6,8 @@ var currentImageBase64 = "";
 // Load contacts from localStorage when page loads
 if (localStorage.getItem("contacts") != null) {
   allContacts = JSON.parse(localStorage.getItem("contacts"));
-  displayContacts();
 }
+displayContacts();
 
 // Image preview when user selects a photo
 function previewImage(input) {
@@ -326,6 +326,13 @@ function searchData() {
     }
   }
   document.getElementById("contactsGrid").innerHTML = cartona;
+
+  // Show empty state if no search results
+  if (cartona === "") {
+      document.getElementById("emptyState").classList.remove("d-none");
+  } else {
+      document.getElementById("emptyState").classList.add("d-none");
+  }
 }
 
 // Toggle favorite status
